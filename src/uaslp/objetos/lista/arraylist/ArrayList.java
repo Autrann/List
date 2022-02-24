@@ -2,7 +2,6 @@ package uaslp.objetos.lista.arraylist;
 
 
 
-
 public class ArrayList {
     private static final int DEFAULT_SIZE = 2;
     private String[] array;

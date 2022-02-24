@@ -6,7 +6,6 @@ import uaslp.objetos.lista.arraylist.ArrayListIterator;
 import uaslp.objetos.lista.arraylist.ArrayList;
 
 
-
 public class Main {
 
 
