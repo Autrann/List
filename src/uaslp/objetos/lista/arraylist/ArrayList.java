@@ -1,10 +1,10 @@
 package uaslp.objetos.lista.arraylist;
 
-import uaslp.objetos.lista.linkedlist.LinkedListIterator;
-import uaslp.objetos.lista.linkedlist.Node;
+
+
 
 public class ArrayList {
-    private static final int DEFAULT_SIZE = 50;
+    private static final int DEFAULT_SIZE = 2;
     private String[] array;
     private int size;
 
@@ -34,6 +34,7 @@ public class ArrayList {
             System.arraycopy(array, 0, array, 1, size);
         }
         array[0] = data;
+        size++;
     }
 
     public void remove(int index) {
@@ -62,7 +63,7 @@ public class ArrayList {
     }
 
     public String getAt(int index) {
-        return index <= 0 && index < size ? array[index] : null;
+        return index >= 0 && index < size ? array[index] : null;
     }
 
     public ArrayListIterator getIterator() {
@@ -77,9 +78,7 @@ public class ArrayList {
     private void increaseArraySize(){
         String []newArray = new String[array.length * 2];
 
-        for(int i = 0; i < size; i++){
-            newArray[i] = array[i];
-        }
+        if (size >= 0) System.arraycopy(array, 0, newArray, 0, size);
 
         array = newArray;
     }
