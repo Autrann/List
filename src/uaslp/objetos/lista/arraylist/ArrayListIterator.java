@@ -1,5 +1,6 @@
 package uaslp.objetos.lista.arraylist;
 
+
 public class ArrayListIterator {
 
     private ArrayList arrayList;
