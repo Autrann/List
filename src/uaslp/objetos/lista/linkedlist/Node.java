@@ -1,11 +1,11 @@
 package uaslp.objetos.lista.linkedlist;
 
-public class Node {    //  -> Las clases solo pueden ser públicas o package-private
-    String data;
-    Node next;
-    Node previous;
+public class Node <T> {    //  -> Las clases solo pueden ser públicas o package-private
+    T data;
+    Node<T> next;
+    Node<T> previous;
 
-    Node(String data) {
+    Node(T data) {
         this.data = data;
     }
 }

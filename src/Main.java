@@ -1,18 +1,23 @@
-//import uaslp.objetos.lista.linkedlist.LinkedList;
-//import uaslp.objetos.lista.linkedlist.LinkedListIterator;
 
+import uaslp.objetos.lista.linkedlist.LinkedList;
+import uaslp.objetos.lista.linkedlist.LinkedListIterator;
+import uaslp.objetos.lista.List;
+import uaslp.objetos.lista.Iterator;
 
 import uaslp.objetos.lista.arraylist.ArrayListIterator;
 import uaslp.objetos.lista.arraylist.ArrayList;
 
 
 public class Main {
-
-
+    //Generics
     public static void main(String[] args) {
-        ArrayList team1 = new ArrayList();
-        ArrayList team2 = new ArrayList();
-        ArrayList team3 = new ArrayList();
+        metodo(new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
+        metodo(new LinkedList<>(),new LinkedList<>(),new LinkedList<>());
+    }
+
+    public static void metodo(List<String> team1, List<String> team2, List<String> team3) {
+
+        List<Double> doubles = new ArrayList<>();
 
         team1.addAtTail("Jesús");
         team1.addAtTail("Salomón");
@@ -24,7 +29,7 @@ public class Main {
 
         team3.addAtFront("Imelda");
 
-        ArrayListIterator iterator;
+        Iterator<String> iterator;
 
         iterator = team1.getIterator();
 

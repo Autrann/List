@@ -4,16 +4,25 @@ title LinkedList - Class Diagram
 
 
 +class uaslp.objetos.list.linkedlist.LinkedList {
+
 -Node head;
+
 -Node tail;
+
 -int size;
 
 +addAtTail (String data)
+
 +addAtFront(String data)
+
 +remove(index)
+
 +removeAll()
+
 +setAt(index, data)
+
 +getAt(index):String
+
 +removeAllWithValue(String data)
 +getSize();
 +getIterator(): LinkedListIterator

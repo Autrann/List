@@ -1,12 +1,18 @@
 package uaslp.objetos.lista.linkedlist;
 
-public class LinkedList {
-    private Node head;
-    private Node tail;
+import uaslp.objetos.lista.List;
+import uaslp.objetos.lista.Iterator;
+
+public class LinkedList <T> implements List <T> {
+
+    private static final int UNA_CONSTANTE = 10;
+
+    private Node<T> head;
+    private Node<T> tail;
     private int size;
 
-    public void addAtTail(String data) {
-        Node node = new Node(data);
+    public void addAtTail(T data) {
+        Node<T> node = new Node<>(data);
 
         if (size == 0) {
             head = node;
@@ -19,8 +25,8 @@ public class LinkedList {
         size++;
     }
 
-    public void addAtFront(String data) {
-        Node node = new Node(data);
+    public void addAtFront(T data) {
+        Node<T> node = new Node<>(data);
 
         if (size == 0) {
             tail = node;
@@ -34,7 +40,7 @@ public class LinkedList {
     }
 
     public void remove(int index) {
-        Node node = findNode(index);
+        Node<T> node = findNode(index);
 
         if(node == null){
             return;
@@ -66,8 +72,8 @@ public class LinkedList {
         size = 0;
     }
 
-    public void setAt(int index, String data) {
-        Node node = findNode(index);
+    public void setAt(int index, T data) {
+        Node<T> node = findNode(index);
 
         if(node != null){
             node.data = data;
@@ -78,13 +84,13 @@ public class LinkedList {
      * @param index 0-index
      * @return element at position index
      */
-    public String getAt(int index) {
-        Node node = findNode(index);
+    public T getAt(int index) {
+        Node<T> node = findNode(index);
 
         return node == null ? null : node.data;
     }
 
-    public LinkedListIterator getIterator() {
+    public Iterator<T> getIterator() {
         return new LinkedListIterator(head);
     }
 
@@ -98,7 +104,7 @@ public class LinkedList {
             return null;
         }
 
-        Node node = head;
+        Node<T> node = head;
         int currentIndex = 0;
 
         while (currentIndex != index) {
