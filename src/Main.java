@@ -1,4 +1,6 @@
 
+import uaslp.objetos.lista.exception.NotValidIndexException;
+import uaslp.objetos.lista.exception.NotNullValuesAllowedException;
 import uaslp.objetos.lista.linkedlist.LinkedList;
 import uaslp.objetos.lista.linkedlist.LinkedListIterator;
 import uaslp.objetos.lista.List;
@@ -11,13 +13,24 @@ import uaslp.objetos.lista.arraylist.ArrayList;
 public class Main {
     //Generics
     public static void main(String[] args) {
-        metodo(new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
-        metodo(new LinkedList<>(),new LinkedList<>(),new LinkedList<>());
+        List<String> team1 = new LinkedList<>();
+        List<String> team2 = new LinkedList<>();
+        List<String> team3 = new LinkedList<>();
+
+        try {
+            metodo(team1, team2, team3);
+        } catch (NotValidIndexException ex) {
+            System.out.println(ex.getMessage());
+        } catch (NotNullValuesAllowedException ex){
+            System.out.println(ex.getMessage());
+        }
+
+        System.out.println("El programa no ha fallado");
     }
 
-    public static void metodo(List<String> team1, List<String> team2, List<String> team3) {
+    public static void metodo(List<String> team1, List<String> team2, List<String> team3) throws NotValidIndexException, NotNullValuesAllowedException {
 
-        List<Double> doubles = new ArrayList<>();
+        team1.remove(5);
 
         team1.addAtTail("Jesús");
         team1.addAtTail("Salomón");
