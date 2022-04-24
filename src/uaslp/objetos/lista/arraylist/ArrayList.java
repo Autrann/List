@@ -3,15 +3,14 @@ package uaslp.objetos.lista.arraylist;
 
 import uaslp.objetos.lista.List;
 import uaslp.objetos.lista.Iterator;
+import uaslp.objetos.lista.exception.NotNullValuesAllowedException;
 
 public class ArrayList <T> implements List <T> {
     private static final int DEFAULT_SIZE = 2;
     private T[] array;
     private int size;
 
-    public static String getname() {
-        return "ArrayList";
-    }
+
 
     public ArrayList() {
         array = (T[])new Object[DEFAULT_SIZE];
@@ -22,7 +21,12 @@ public class ArrayList <T> implements List <T> {
     }
 
     @Override
-    public void addAtTail(T data) {
+    public void addAtTail(T data) throws NotNullValuesAllowedException {
+
+        if(data == null) {
+            throw new NotNullValuesAllowedException();
+        }
+
         if (size == array.length) {
             increaseArraySize();
         }
@@ -32,7 +36,12 @@ public class ArrayList <T> implements List <T> {
     }
 
     @Override
-    public void addAtFront(T data) {
+    public void addAtFront(T data) throws NotNullValuesAllowedException {
+
+        if(data == null) {
+            throw new NotNullValuesAllowedException();
+        }
+
         if (size == array.length) {
             increaseArraySize();
         }
@@ -66,7 +75,12 @@ public class ArrayList <T> implements List <T> {
     }
 
     @Override
-    public void setAt(int index,T data) {
+    public void setAt(int index,T data) throws NotNullValuesAllowedException{
+
+        if(data == null) {
+            throw new NotNullValuesAllowedException();
+        }
+
         if(index >= 0 && index < size) {
             array[index] = data;
         }
